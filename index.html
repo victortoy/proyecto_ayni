@@ -13,20 +13,22 @@
             <div class="col-md-6">
                 <h1>Estudiantes</h1>
                 <p>Formulario para registro de estudiantes</p>
-                <div class="mb-3">
-                    <label class="form-label">Nombre</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">ID</label>
-                    <input type="number" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Fecha nacimiento</label>
-                    <input type="date" class="form-control">
-                </div>    
-                <button class="btn btn-primary">Guardar</button>
-                <button class="btn btn-primary">Actualizar</button>
+                <form id="formulario">
+                    <div class="mb-3">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" name="nombre" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">ID</label>
+                        <input type="number" name="id" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Fecha nacimiento</label>
+                        <input type="date" name="fn" class="form-control">
+                    </div>                
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <!--button class="btn btn-primary">Actualizar</button-->
+                </form>
             </div>
             <div class="col-md-6">
                 <table class="table">
@@ -46,12 +48,38 @@
                         <tr>
                             <td>80909</td>
                             <td>Juan Carlos Martinez</td>
-                            <td>2014-12-08</td>aaaaa
+                            <td>2014-12-08</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-dark" role="alert" id="mensaje">
+                    A simple dark alert—check it out!
+                </div>
+            </div>
+        </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#formulario').on('submit', function(e){
+                e.preventDefault()
+                $.ajax({
+                    url: 'procesar.php',
+                    type: 'POST',
+                    data: {
+                        nombre: 'victor',
+                        edad: 40
+                    },
+                    success: function(res){
+                        $('#mensaje').text(res)
+                    }
+                })    
+            })
+        })
+    </script>
 </body>
 </html>
