@@ -1,7 +1,7 @@
 <?php
 class Router{
 	public function __construct(){
-		if($_GET['url'] == 'frontController'){
+		if(isset($_GET['url']) and $_GET['url'] == 'frontController'){
 			require 'controllers/'.$_POST['clase'].'.php';
 			$obj = new $_POST['clase']();
 			$obj->{$_POST['metodo']}();

@@ -3,9 +3,35 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<title></title>
 </head>
 <body>
-	Hola soy el index de main
+	<div class="contaniner">		
+		<div class="row justify-content-md-center m-3">
+			<div class="col-md-4">
+				<div class="card">
+					<div class="card-header">
+						Login
+					</div>
+					<div class="card-body">
+						<form>
+							<div>
+								<label class="form-label">Correo</label>
+								<input type="email" class="form-control" name="email">
+							</div>
+							<div>
+								<label class="form-label">Clave</label>
+								<input type="email" class="form-control" name="password">
+							</div>
+						</form>
+					</div>
+					<div class="card-footer">
+						<button type="button" class="btn btn-primary">Ingresar</button>
+					</div>
+				</div>
+			</div>
+		</div>			
+	</div>
 </body>
 </html>
