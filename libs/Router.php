@@ -2,9 +2,9 @@
 class Router{
 	public function __construct(){
 		if(isset($_GET['url']) and $_GET['url'] == 'frontController'){
-			require 'controllers/'.$_POST['clase'].'.php';
-			$obj = new $_POST['clase']();
-			$obj->{$_POST['metodo']}();
+			require 'controllers/'.$_POST['class'].'.php';
+			$obj = new $_POST['class']();
+			$obj->{$_POST['metode']}($_POST['params']);
 		}else{
 			$folder = 'main';
 			$view = 'index';

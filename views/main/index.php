@@ -33,5 +33,28 @@
 			</div>
 		</div>			
 	</div>
+	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$.ajax({
+				url: 'frontController',
+				type: 'POST',
+				data:{
+					class: 'users',
+					metode: 'read',
+					params: {
+						usuario: 'usaurio1',
+						pass: '123'
+					}
+				},
+				success: function(r){
+					console.log(r)
+				},
+				error: function(xhr, status){
+					console.log('Ocurrio un error')
+				}
+			})
+		})
+	</script>
 </body>
 </html>
