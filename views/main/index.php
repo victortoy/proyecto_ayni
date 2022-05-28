@@ -15,45 +15,35 @@
 						Login
 					</div>
 					<div class="card-body">
-						<form>
+						<form id="formulario">
 							<div>
 								<label class="form-label">Correo</label>
 								<input type="email" class="form-control" name="email">
 							</div>
 							<div>
 								<label class="form-label">Clave</label>
-								<input type="email" class="form-control" name="password">
+								<input type="password" class="form-control" name="password">
 							</div>
 						</form>
 					</div>
-					<div class="card-footer">
-						<button type="button" class="btn btn-primary">Ingresar</button>
+					<div class="card-footer text-center">
+						<button type="submit" class="btn btn-primary" name="algo" form="formulario">Ingresar</button>
 					</div>
 				</div>
 			</div>
 		</div>			
 	</div>
-	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript">
+	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="assets/js/index.js"></script>
+	<script>
 		$(function(){
-			$.ajax({
-				url: 'frontController',
-				type: 'POST',
-				data:{
-					class: 'users',
-					metode: 'read',
-					params: {
-						usuario: 'usaurio1',
-						pass: '123'
-					}
-				},
-				success: function(r){
+			$('#formulario').on('submit', function(e){
+				e.preventDefault()
+				let data = parserForm($('#formulario'))
+				sendPetition('users', 'read', data, function(r){
 					console.log(r)
-				},
-				error: function(xhr, status){
-					console.log('Ocurrio un error')
-				}
-			})
+				})
+			})			
 		})
 	</script>
 </body>
