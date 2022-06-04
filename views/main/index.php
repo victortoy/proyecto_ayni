@@ -41,7 +41,7 @@
 			$('#formulario').on('submit', function(e){
 				e.preventDefault()
 				let data = parserForm($('#formulario'))
-				sendPetition('users', 'read', data, function(r){
+				sendPetition('users', 'otrometodo', data, function(r){
 					console.log(r)
 				})
 			})			

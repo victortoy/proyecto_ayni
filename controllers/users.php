@@ -8,4 +8,8 @@ class users {
 			print_r($registro);
 		}
 	}
+
+	public function otrometodo($params){
+		echo "Soy otro metodo";
+	}
 }

@@ -8,15 +8,23 @@ class Router{
 		}else{
 			$folder = 'main';
 			$view = 'index';
-
+			$parametros = [];
 			if(isset($_REQUEST['url'])){
 				$url = explode('/',$_REQUEST['url']);
 				$folder = array_shift($url);
 				if(!empty($url)){
 					$view = array_shift($url);
-				}
-			}
-			require 'views/'.$folder.'/'.$view.'.php';
+					if(!empty($url)){
+						$parametros = $url;		
+					}
+				}				
+			}			
+			$file = 'views/'.$folder.'/'.$view.'.php';
+			if(file_exists($file)){
+				require $file;	
+			}else{
+				require 'views/main/error.php';
+			}			
 		}
 	}
 }
